@@ -22,10 +22,15 @@ Q1 - Pipeline de traitement  processus de détection  un  langage abusif sur le 
 1.3-Feature engeneering
 
   * In natural language processing we can try : 
+  
         - Bag of words and TFID (example in python : sklearn.feature_extraction.text has implemented CountVectorizer and TfidfTransformer )
+        
         - Word Embeddings (example in python : topic modeling tool "gensim" has implemented the word2vec)
+        
         - NLP based features like Part of Speech models (example in python : NLTK wich is a Natural Language Toolkit)
+        
         - Topic modeling (example in python : LatentDirichletAllocation in sklearn.decomposition)
+        
   * We can try to add :
               - Ngrams features
               
