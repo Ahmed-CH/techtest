@@ -75,7 +75,9 @@ For abuse language detection from comments and posts the context is important.
         * The Matrix is used as an input of the CNN Model. 
           The first layer is a convolution layer with filters.
           The filter is applied to a window of word sequence of H (width of filter ) 
-          and each word will be represented as  a vector of dimensionality N . After applying it we get a new feature .                 Then,we  slide the filter through the  text to generate a feature map based on all the word concatenation .
+          and each word will be represented as  a vector of dimensionality N . 
+          After applying it we get a new feature.                   
+          Then ,we slide the filter through the text to generate a feature map based on all the word concatenation .
         
   2.2.2 Pooling Layer
   
