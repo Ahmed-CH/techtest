@@ -3,12 +3,14 @@
 Q1 - Pipeline de traitement  processus de détection  un  langage abusif sur le Social Web
 ------------------------------
 1.1-Data Collection
-  We start by collecting Data Using Social web APIs (Facebook Graph API , Twitter API , Instagram API).
-  In the detection of abusive language we are talking about a supervised learning problem. This means we need a labeled dataset so the algorithms can learn the patterns and correlations in the data .
-  To label the data : 
+  * We start by collecting Data Using Social web APIs (Facebook Graph API , Twitter API , Instagram API).
+  * In the detection of abusive language we are talking about a supervised learning problem. This means we need a labeled         dataset so the algorithms can learn the patterns and correlations in the data .
+  * To label the data : 
        - Create rule based conditions based on list of bad words
        - Data augmentation using open data bases
+       
 1.2-Data Cleaning
+
   * Dataset balancing :  undersample the majority class and oversample the minority one
 
   * Explore the collected data and perform a cleaning process to ensure no distortions :
@@ -16,7 +18,9 @@ Q1 - Pipeline de traitement  processus de détection  un  langage abusif sur le 
        - delete or transform special characters
        - downcased every word
        - stemming
+       
 1.3-Feature engeneering
+
   * In natural language processing we can try : 
         - Bag of words and TFID (example in python : sklearn.feature_extraction.text has implemented CountVectorizer and TfidfTransformer )
         - Word Embeddings (example in python : topic modeling tool "gensim" has implemented the word2vec)
@@ -24,9 +28,13 @@ Q1 - Pipeline de traitement  processus de détection  un  langage abusif sur le 
         - Topic modeling (example in python : LatentDirichletAllocation in sklearn.decomposition)
   * We can try to add :
               - Ngrams features
+              
 1.4-Train — test split
+
   * Split data in order to validate the model and prove it's quality.
+  
 1.5- Apply  machine learning models 
+
   * test multiple text classifcation models wich will help us to figure out which one may fit better our  data :
       - Random Forest
       - Support Vector Machine
@@ -38,8 +46,10 @@ Q1 - Pipeline de traitement  processus de détection  un  langage abusif sur le 
   * Performance Measurement :
       - Accuracy
       - Use Area Under the ROC Curve (AUC) wich is used in  classification problems
-1.6 - Select Best Model
-   *Choose the model with the  evaluation metric and save it to be used in production (pickle file).
+      
+1.6 Select Best Model 
+
+   * Choose the model with the  evaluation metric and save it to be used in production (pickle file).
    * For model deployment, the pickle file can be moved to the production site .
 
 Q2-Expliquer selon toi comment nous pouvons utiliser un algo hybrid CNN-LSTM pour détection d'un langage abusif sur le Social Web
@@ -50,13 +60,21 @@ For abuse language detection from comments and posts the context is important.
 * To achieve excellent performance we can use a hybrid CNN-LSTM algorithm : 
 
 2.1 feature creation
+
   * We start by using the word embedding method to represent each word in the text (we can use word2vec method implemented by topic modeling tool "gensim" ) . the output of this method is a Matrix
+  
 2.2 Apply CNN
+
   2.2.1 Convolution Layer :
+  
         * The Matrix is used as an input of the CNN Model. The first layer is a convolution layer with filters . the filter is applied to a window of word sequence of H (width of filter ) and each word will be represented as  a vector of dimensionality N . After applying it we get a new feature . Then,we  slide the filter through the  text to generate a feature map based on all the word concatenation .
+        
   2.2.2 Pooling Layer
+  
         * this layer will allow us to get  the most important semantic features P1
+        
   ==> to apply CNN using python we can use keras  (convolution layer : keras.layers.Conv2D ,  Pooling Layer :keras.layers.MaxPool2D)
+  
 2.3 Apply LSTM
 
   * we rearrange P1 features (Output of CNN)  with respect to the time sequence .The output will be used as the input of the LSTM model
@@ -67,8 +85,11 @@ For abuse language detection from comments and posts the context is important.
 Q3 un connecteur de FB, instagram (image et texte commentaires liés à m'image) qui collecte des commentaires en français, Arabe sur le sujet du décès du président tunisien
 ----------------------
 the code directory contains :
-    config.py : Configuration file , contains facebook and Instagram Tokens and the MongoDB Connection Settings
-    socialApis.py : Contains Instagram and facebook connectors
-    collect_comments.py : Script that collects comments related to the death of Beji Caid Essebsi and insert it in a MongoDB collection
+
+    * config.py : Configuration file , contains facebook and Instagram Tokens and the MongoDB Connection Settings
+    
+    * socialApis.py : Contains Instagram and facebook connectors
+    
+    * collect_comments.py : Script that collects comments related to the death of Beji Caid Essebsi and insert it in a MongoDB       collection
 
 
