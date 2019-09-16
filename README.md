@@ -100,6 +100,6 @@ the code directory contains :
     
     * socialApis.py : Contains Instagram and facebook connectors
     
-    * collect_comments.py : Script that collects comments related to the death of Beji Caid Essebsi and insert it in a MongoDB       collection
+    * collect_comments.py : Script that collects comments related to the death of Beji Caid Essebsi and insert it in a MongoDB  collection
 
 
