@@ -12,4 +12,5 @@ INSTA_CLIENT_SECRET="a2872606505c483f8dd215c46e78200f"
 ################
 ####Mongodb###
 ################
-MONGO_CLIENT={"database":"SocialComments","host":"localhost","port":"27017"}
+MONGO_CLIENT={"database":"SocialComments","host":"localhost","port":"27018",'user': 'tracker',
+                'pwd': 'BotsinAction!',}
